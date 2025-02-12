@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <button id="add">Add Element</button>
+    <button id="remove">Remove Element</button>
+
+    <script>
+        const container = document.getElementById("container");
+        const addButton = document.getElementById("add");
+        const removeButton = document.getElementById("remove");
+
+        addButton.addEventListener("click", function() {
+            const para = document.createElement("p");
+            para.textContent ="This is new paragraph ";
+            para.id="para";
+            container.appendChild(para);
+            
+        });
+
+        removeButton.addEventListener("click", function(){
+            const para = document.getElementById("para");
+            if(para) para.remove();
+
+        });
+    </script>
+</body>
+</html>
