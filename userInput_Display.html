@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Enter Your Details</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name"><br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" placeholder="Enter your age"><br><br>
+
+    <button id="saveBtn">Save</button>
+    <button id="clearBtn">Clear Data</button>
+
+    <h3>Saved Data:</h3>
+    <p id="displayData"></p>
+
+    <script>
+        const name = document.getElementById("name");
+        const age = document.getElementById("age");
+        const button = document.getElementById("saveBtn");
+        const displayData = document.getElementById("displayData");
+        
+        function set(){
+            const s_name =localStorage.setItem("name", name.value) ;
+            const s_age = localStorage.setItem("age", age.value);
+            display();
+        }
+
+        function display() {
+            const d_name =localStorage.getItem("name") || "no name added" ;
+            const d_age = localStorage.getItem("age") || "no age added";
+
+            displayData.innerHTML = `name: ${d_name} <br> age: ${d_age}`;
+        }
+        window.onload = display;
+
+
+        button.addEventListener("click", set);
+    </script>
+</body>
+</html>

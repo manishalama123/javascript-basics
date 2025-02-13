@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id ="btn">Change Theme</button>
+
+    <script>
+        const button1 = document.getElementById("btn");
+
+        function setTheme() {
+            const savedTheme = localStorage.getItem("theme") || "white"; // default ma theme white hunxa
+            document.body.style.backgroundColor = savedTheme;
+        }
+        
+        function toggleTheme() {
+            const currentTheme = document.body.style.backgroundColor;
+            const newTheme = currentTheme == "black"? "white": "black";
+            document.body.style.backgroundColor = newTheme;
+            localStorage.setItem("theme", newTheme);
+        }
+
+        window.onload = setTheme;// reload garepani theme change hudaina
+        button1.addEventListener("click", toggleTheme);
+    </script>
+</body>
+</html>
